@@ -26,54 +26,85 @@ if ($result === false) {
 <div class="page-content fade-in-up">
     <style>
         .card {
-            border-radius: 10px;
+            border-radius: 10px !important;
             background-color: white !important;
             color: black !important;
-            box-shadow: 0 0 5px rgba(73, 54, 164, 0.8);
+            /* box-shadow: 0 0 5px rgba(73, 54, 164, 0.8); */
             overflow: hidden;
         }
+
         .background-green {
-            background-color:#2ECC71;
+            background-color: #2ECC71;
         }
+
         .background-blue {
-            background-color:#3498DB;
+            background-color: #3498DB;
         }
+
         .background-orange {
-            background-color:#F39C12;
+            background-color: #F39C12;
         }
+
         .background-red {
-            background-color:#E74C3C;
+            background-color: #fff;
+        }
+
+        .ibox-body {
+            padding: 20px !important;
+        }
+
+        .widget-stat-icon {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            top: 10%;
+            right: 5%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 50px;
+            text-align: center;
+            /* background-color: #03fd52; */
+            border-radius: 50%;
+            font-size: 20px;
+        }
+        * {
+            font-family: 'Aptos', 'poppins', sans-serif;
         }
     </style>
+    <h2 style="font-weight: 500;">Dashboard</h2>
     <div class="row mt-4">
         <div class="col-lg-3 col-md-6">
             <div class="ibox bg-success widget-stat card">
                 <div class="ibox-body">
-                    <h2 class="m-b-5 font-strong color-green">
-                        ₹<?php echo number_format($todaysuccesspayment["amt"], 2); ?></h2>
-                    <div class="m-b-5">Today Received Payment</div><i class=" widget-stat-icon background-green color-white">
+                    <div class="m-b-5">Today Payment Received</div>
+                    <h2 class="p-t-5 font-strong color-green">
+                        ₹ <?php echo number_format($todaysuccesspayment["amt"], 2); ?>
+                    </h2>
+                    <i class=" widget-stat-icon background-green color-white">
                         <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" fill="currentColor"
                             class="bi bi-arrow-left-right" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
                                 d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5m14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5" />
-                        </svg></i>
-                    <div><i class="fa fa-level-up m-r-5"></i><small>100% higher</small></div>
+                        </svg>
+                    </i>
                 </div>
             </div>
         </div>
         <div class="col-lg-3 col-md-6">
             <div class="ibox bg-info widget-stat card">
                 <div class="ibox-body">
-                    <h2 class="m-b-5 font-strong color-blue"><?php echo number_format($todayallpayment["amt"]) ?></h2>
-                    <div class="m-b-5">Today Success Transaction</div><i class=" widget-stat-icon background-blue color-white"><svg
-                            xmlns="http://www.w3.org/2000/svg" width="29" height="29" fill="currentColor"
+                    <div class="m-b-5">Today Success Transaction</div>
+                    <h2 class="p-t-5 font-strong color-blue"><?php echo number_format($todayallpayment["amt"]) ?></h2>
+                    <i class=" widget-stat-icon background-blue color-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" fill="currentColor"
                             class="bi bi-send-check" viewBox="0 0 16 16">
                             <path
                                 d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855a.75.75 0 0 0-.124 1.329l4.995 3.178 1.531 2.406a.5.5 0 0 0 .844-.536L6.637 10.07l7.494-7.494-1.895 4.738a.5.5 0 1 0 .928.372zm-2.54 1.183L5.93 9.363 1.591 6.602z" />
                             <path
                                 d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686" />
-                        </svg></i>
-                    <div><i class="fa fa-level-up m-r-5"></i><small>99.9% higher</small></div>
+                        </svg>
+                    </i>
                 </div>
             </div>
         </div>
@@ -102,26 +133,7 @@ if ($result === false) {
                             </div>
                         </div>
                     </div> -->
-        <div class="col-lg-3 col-md-6">
-            <div class="ibox bg-danger widget-stat card">
-                <div class="ibox-body">
-                    <h2 class="m-b-5 font-strong color-orange">
-                        <?php echo htmlspecialchars($userdata['expiry'], ENT_QUOTES, 'UTF-8'); ?>
-                    </h2>
-                    <div class="m-b-5">Plan Expire Date</div><i class="widget-stat-icon background-orange color-white"><svg
-                            xmlns="http://www.w3.org/2000/svg" width="29" height="29" fill="currentColor"
-                            class="bi bi-calendar2-check" viewBox="0 0 16 16">
-                            <path
-                                d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0" />
-                            <path
-                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z" />
-                            <path
-                                d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5z" />
-                        </svg></i>
-                    <div><i class="fa fa-level-up m-r-5"></i><small>45% higher</small></div>
-                </div>
-            </div>
-        </div>
+
 
         <?php
 
@@ -164,16 +176,39 @@ if ($result === false) {
         <div class="col-lg-3 col-md-6">
             <div class="ibox bg-success widget-stat card">
                 <div class="ibox-body">
-                    <h2 class="m-b-5 font-strong text-danger">₹<?php echo number_format($todayfail["amt"], 2); ?></h2>
-                    <div class="m-b-5">Today Faild Payment</div><i class="widget-stat-icon background-red color-white"><svg
-                            xmlns="http://www.w3.org/2000/svg" width="29" height="29" fill="currentColor"
+                    <div class="m-b-5">Today Faild Payment</div>
+                    <h2 class="p-t-5 font-strong text-danger">₹ <?php echo number_format($todayfail["amt"], 2); ?></h2>
+                    <i class="widget-stat-icon background-red color-white" style="">
+                        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" fill="currentColor"
                             class="bi bi-send-exclamation" viewBox="0 0 16 16">
                             <path
                                 d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855a.75.75 0 0 0-.124 1.329l4.995 3.178 1.531 2.406a.5.5 0 0 0 .844-.536L6.637 10.07l7.494-7.494-1.895 4.738a.5.5 0 1 0 .928.372zm-2.54 1.183L5.93 9.363 1.591 6.602z" />
                             <path
                                 d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1.5a.5.5 0 0 1-1 0V11a.5.5 0 0 1 1 0m0 3a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0" />
-                        </svg></i>
-                    <div><i class="fa fa-level-down m-r-5"></i><small>-12% Lower</small></div>
+                        </svg> -->
+                        <img src="https://cdn-icons-png.flaticon.com/128/4476/4476841.png" style="" alt="">
+                    </i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="ibox bg-danger widget-stat card">
+                <div class="ibox-body">
+                    <div class="m-b-5">Plan Expire Date</div>
+                    <h2 class="p-t-5 font-strong color-white"></h2>
+                        <?php echo date('d-m-Y', strtotime($userdata['expiry'])); ?>
+                    </h2>
+                    <i class="widget-stat-icon background-orange color-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" fill="currentColor"
+                            class="bi bi-calendar2-check" viewBox="0 0 16 16">
+                            <path
+                                d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0" />
+                            <path
+                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z" />
+                            <path
+                                d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5z" />
+                        </svg>
+                    </i>
                 </div>
             </div>
         </div>

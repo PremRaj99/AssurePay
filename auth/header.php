@@ -333,6 +333,59 @@ if (isset($_SESSION['username'])) {
                 transform: scale(1);
             }
         }
+
+        .page-brand {
+            color: #000 !important;
+            background-color: #fff !important;
+        }
+
+        .nav-link {
+            color: #000 !important;
+        }
+
+        .sidebar-item-icon {
+            color: #000 !important;
+        }
+
+        .side-menu {
+            background-color: #fff !important;
+        }
+
+        .side-menu li a {
+            color: #000 !important;
+            font-weight: 400 !important;
+        }
+
+        .side-menu li {
+            color: #000 !important;
+            font-weight: 600;
+            /* border: 1px solid #000; */
+            border-radius: 5px;
+        }
+
+        .side-menu li a:hover {
+            background-color: #0882ff !important;
+            border-radius: 5px;
+            color: #fff !important;
+            transition: 300ms;
+            & i {
+                color: #fff !important;
+            }
+        }
+
+        .page-sidebar {
+            background-color: #fff !important;
+            color: #000 !important;
+            padding: 8px !important;
+        }
+
+        .page-sidebar .admin-block div {
+            color: #000 !important;
+        }
+
+        .page-sidebar .admin-block div small {
+            color: #000 !important;
+        }
     </style>
 
     </head>
@@ -347,12 +400,12 @@ if (isset($_SESSION['username'])) {
 
         <div class="page-wrapper">
             <!-- START HEADER-->
-            <header class="header" style="background-color:#1b019b!important;">
+            <header class="header" style="background-color:#fff!important; color:#000!important;">
                 <div class="page-brand">
                     <a class="link" href="dashboard">
-                        <span class="brand"><?php echo $site_settings['brand_name'] ?? ''; ?></span>
+                        <span class="brand">AssurePay</span>
                         </span>
-                        <span class="brand-mini">AC</span>
+                        <span class="brand-mini">AP</span>
                     </a>
                 </div>
                 <div class="flexbox flex-1">
@@ -361,147 +414,10 @@ if (isset($_SESSION['username'])) {
                         <li>
                             <a class="nav-link sidebar-toggler js-sidebar-toggler"><i class="ti-menu"></i></a>
                         </li>
-                        <li>
-                            <form class="navbar-search" action="javascript:;">
-                                <div class="rel">
-                                    <span class="search-icon"><i class="ti-search"></i></span>
-                                    <input class="form-control" placeholder="Search here...">
-                                </div>
-                            </form>
-                        </li>
                     </ul>
                     <!-- END TOP-LEFT TOOLBAR-->
                     <!-- START TOP-RIGHT TOOLBAR-->
-                    <ul class="nav navbar-toolbar">
-                        <li class="dropdown dropdown-inbox">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope-o"></i>
-                                <span class="badge badge-primary envelope-badge">9</span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-right dropdown-menu-media">
-                                <li class="dropdown-menu-header">
-                                    <div>
-                                        <span><strong>9 New</strong> Messages</span>
-                                        <a class="pull-right" href="mailbox.html">view all</a>
-                                    </div>
-                                </li>
-                                <li class="list-group list-group-divider scroller" data-height="240px" data-color="#71808f">
-                                    <div>
-                                        <a class="list-group-item">
-                                            <div class="media">
-                                                <div class="media-img">
-                                                    <img src="./assets/img/users/u1.jpg" />
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="font-strong"> </div>Jeanne Gonzalez<small
-                                                        class="text-muted float-right">Just now</small>
-                                                    <div class="font-13">Your proposal interested me.</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="list-group-item">
-                                            <div class="media">
-                                                <div class="media-img">
-                                                    <img src="./assets/img/users/u2.jpg" />
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="font-strong"></div>Becky Brooks<small
-                                                        class="text-muted float-right">18 mins</small>
-                                                    <div class="font-13">Lorem Ipsum is simply.</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="list-group-item">
-                                            <div class="media">
-                                                <div class="media-img">
-                                                    <img src="./assets/img/users/u3.jpg" />
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="font-strong"></div>Frank Cruz<small
-                                                        class="text-muted float-right">18 mins</small>
-                                                    <div class="font-13">Lorem Ipsum is simply.</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="list-group-item">
-                                            <div class="media">
-                                                <div class="media-img">
-                                                    <img src="./assets/img/users/u4.jpg" />
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="font-strong"></div>Rose Pearson<small
-                                                        class="text-muted float-right">3 hrs</small>
-                                                    <div class="font-13">Lorem Ipsum is simply.</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown dropdown-notification">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-o rel"><span
-                                        class="notify-signal"></span></i></a>
-                            <ul class="dropdown-menu dropdown-menu-right dropdown-menu-media">
-                                <li class="dropdown-menu-header">
-                                    <div>
-                                        <span><strong>5 New</strong> Notifications</span>
-                                        <a class="pull-right" href="javascript:;">view all</a>
-                                    </div>
-                                </li>
-                                <li class="list-group list-group-divider scroller" data-height="240px" data-color="#71808f">
-                                    <div>
-                                        <a class="list-group-item">
-                                            <div class="media">
-                                                <div class="media-img">
-                                                    <span class="badge badge-success badge-big"><i
-                                                            class="fa fa-check"></i></span>
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="font-13">4 task compiled</div><small class="text-muted">22
-                                                        mins</small>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="list-group-item">
-                                            <div class="media">
-                                                <div class="media-img">
-                                                    <span class="badge badge-default badge-big"><i
-                                                            class="fa fa-shopping-basket"></i></span>
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="font-13">You have 12 new orders</div><small
-                                                        class="text-muted">40 mins</small>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="list-group-item">
-                                            <div class="media">
-                                                <div class="media-img">
-                                                    <span class="badge badge-danger badge-big"><i
-                                                            class="fa fa-bolt"></i></span>
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="font-13">Server #7 rebooted</div><small class="text-muted">2
-                                                        hrs</small>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="list-group-item">
-                                            <div class="media">
-                                                <div class="media-img">
-                                                    <span class="badge badge-success badge-big"><i
-                                                            class="fa fa-user"></i></span>
-                                                </div>
-                                                <div class="media-body">
-                                                    <div class="font-13">New user registered</div><small
-                                                        class="text-muted">2 hrs</small>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
+                    <ul class="nav navbar-toolbar" style="margin-right: 20px;">
                         <li class="dropdown dropdown-user">
                             <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
                                 <img src="./assets/img/admin-avatar.png" />
@@ -521,15 +437,7 @@ if (isset($_SESSION['username'])) {
             <!-- END HEADER-->
             <!-- START SIDEBAR-->
             <nav class="page-sidebar" id="sidebar">
-                <div id="sidebar-collapse">
-                    <div class="admin-block d-flex">
-                        <div>
-                            <img src="./assets/img/admin-avatar.png" width="45px" />
-                        </div>
-                        <div class="admin-info">
-                            <div class="font-strong"><?php echo $userdata['name']; ?></div><small>API Partner</small>
-                        </div>
-                    </div>
+                <div id="sidebar-collapse" style="padding: 16px 0;">
                     <ul class="side-menu metismenu">
                         <li>
                             <a class="active" href="dashboard"><i class="sidebar-item-icon fa fa-th-large"></i>
@@ -540,7 +448,7 @@ if (isset($_SESSION['username'])) {
                         if ($userdata['role'] == 'Admin') {
                             ?>
 
-                            </li>
+                            
 
                             <li class="heading">Admin Managment</li>
                             <li>

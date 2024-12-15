@@ -193,7 +193,7 @@ $configContent .= "?>";
         <input type="text" id="username" name="username" required>
 
         <label for="password">Database Password:</label>
-        <input type="password" id="password" name="password" required>
+        <input type="password" id="password" name="password" >
 
         <label for="dbname">Database Name:</label>
         <input type="text" id="dbname" name="dbname" required>
