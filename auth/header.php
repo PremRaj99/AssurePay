@@ -354,6 +354,12 @@ if (isset($_SESSION['username'])) {
         .side-menu li a {
             color: #000 !important;
             font-weight: 400 !important;
+
+            &.active {
+                background-color: #0882ff !important;
+                border-radius: 5px;
+                color: #fff !important;
+            }
         }
 
         .side-menu li {
@@ -367,7 +373,9 @@ if (isset($_SESSION['username'])) {
             background-color: #0882ff !important;
             border-radius: 5px;
             color: #fff !important;
-            transition: 300ms;
+            transition: all 0.3s;
+            transform: translateX(5px) !important;
+
             & i {
                 color: #fff !important;
             }
@@ -454,7 +462,7 @@ if (isset($_SESSION['username'])) {
                             <li>
 
                             <li>
-                                <a href="sitesetting"> <i class="sidebar-item-icon">
+                                <a class="" href="sitesetting"> <i class="sidebar-item-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                             class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd"
@@ -469,7 +477,7 @@ if (isset($_SESSION['username'])) {
 
 
                             <li>
-                                <a href="add_api"> <i class="sidebar-item-icon">
+                                <a class="<?= ($activePage === 'add_api') ? 'active' : '' ?>" href="add_api"> <i class="sidebar-item-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                             class="bi bi-envelope-check" viewBox="0 0 16 16">
                                             <path
@@ -482,7 +490,7 @@ if (isset($_SESSION['username'])) {
                                 </a>
                             </li>
                             <li>
-                                <a href="manage_subscription"> <i class="sidebar-item-icon">
+                                <a class="<?= ($activePage === 'manage_subscription') ? 'active' : '' ?>" href="manage_subscription"> <i class="sidebar-item-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                             class="bi bi-shop" viewBox="0 0 16 16">
                                             <path
@@ -623,172 +631,6 @@ if (isset($_SESSION['username'])) {
     header("location:index");
 }
 ?>
-
-            <!-- BEGIN THEME CONFIG PANEL-->
-            <div class="theme-config">
-                <div class="theme-config-toggle"><i class="fa fa-cog theme-config-show"></i><i
-                        class="ti-close theme-config-close"></i></div>
-                <div class="theme-config-box">
-                    <div class="text-center font-18 m-b-20">SETTINGS</div>
-                    <div class="font-strong">LAYOUT OPTIONS</div>
-                    <div class="check-list m-b-20 m-t-10">
-                        <label class="ui-checkbox ui-checkbox-gray">
-                            <input id="_fixedNavbar" type="checkbox" <?php if ($fixednavbar == 1) {
-                                echo "checked";
-                            } ?>>
-                            <span class="input-span"></span>Fixed navbar</label>
-                        <label class="ui-checkbox ui-checkbox-gray">
-                            <input id="_fixedlayout" type="checkbox" <?php if ($fixedlayout == 1) {
-                                echo "checked";
-                            } ?>>
-                            <span class="input-span"></span>Fixed layout</label>
-                        <label class="ui-checkbox ui-checkbox-gray">
-                            <input class="js-sidebar-toggler" id="_fixedSidebar" type="checkbox" <?php if ($fixedsidebar == 1) {
-                                echo "checked";
-                            } ?>>
-                            <span class="input-span"></span>Collapse sidebar</label>
-                    </div>
-                    <div class="font-strong">LAYOUT STYLE</div>
-                    <div class="m-t-10">
-                        <label class="ui-radio ui-radio-gray m-r-10">
-                            <input type="radio" name="layout-style" value="" <?php if ($boxstyle == '' || $boxstyle == 0) {
-                                echo "checked";
-                            } ?>>
-                            <span class="input-span"></span>Fluid</label>
-                        <label class="ui-radio ui-radio-gray">
-                            <input type="radio" name="layout-style" value="1" <?php if ($boxstyle == 1) {
-                                echo "checked";
-                            } ?>>
-                            <span class="input-span"></span>Boxed</label>
-                    </div>
-                    <div class="m-t-10 m-b-10 font-strong">THEME COLORS</div>
-                    <div class="d-flex m-b-20">
-                        <div class="color-skin-box" data-toggle="tooltip" data-original-title="Default">
-                            <label>
-                                <input type="radio" name="setting-theme" value="default" <?php if ($themecolor == 'default') {
-                                    echo "checked";
-                                } ?>>
-                                <span class="color-check-icon"><i class="fa fa-check"></i></span>
-                                <div class="color bg-white"></div>
-                                <div class="color-small bg-ebony"></div>
-                            </label>
-                        </div>
-                        <div class="color-skin-box" data-toggle="tooltip" data-original-title="Blue">
-                            <label>
-                                <input type="radio" name="setting-theme" value="blue" <?php if ($themecolor == 'blue') {
-                                    echo "checked";
-                                } ?>>
-                                <span class="color-check-icon"><i class="fa fa-check"></i></span>
-                                <div class="color bg-blue"></div>
-                                <div class="color-small bg-ebony"></div>
-                            </label>
-                        </div>
-                        <div class="color-skin-box" data-toggle="tooltip" data-original-title="Green">
-                            <label>
-                                <input type="radio" name="setting-theme" value="green" <?php if ($themecolor == 'green') {
-                                    echo "checked";
-                                } ?>>
-                                <span class="color-check-icon"><i class="fa fa-check"></i></span>
-                                <div class="color bg-green"></div>
-                                <div class="color-small bg-ebony"></div>
-                            </label>
-                        </div>
-                        <div class="color-skin-box" data-toggle="tooltip" data-original-title="Purple">
-                            <label>
-                                <input type="radio" name="setting-theme" value="purple" <?php if ($themecolor == 'purple') {
-                                    echo "checked";
-                                } ?>>
-                                <span class="color-check-icon"><i class="fa fa-check"></i></span>
-                                <div class="color bg-purple"></div>
-                                <div class="color-small bg-ebony"></div>
-                            </label>
-                        </div>
-                        <div class="color-skin-box" data-toggle="tooltip" data-original-title="Orange">
-                            <label>
-                                <input type="radio" name="setting-theme" value="orange" <?php if ($themecolor == 'orange') {
-                                    echo "checked";
-                                } ?>>
-                                <span class="color-check-icon"><i class="fa fa-check"></i></span>
-                                <div class="color bg-orange"></div>
-                                <div class="color-small bg-ebony"></div>
-                            </label>
-                        </div>
-                        <div class="color-skin-box" data-toggle="tooltip" data-original-title="Pink">
-                            <label>
-                                <input type="radio" name="setting-theme" value="pink" <?php if ($themecolor == 'pink') {
-                                    echo "checked";
-                                } ?>>
-                                <span class="color-check-icon"><i class="fa fa-check"></i></span>
-                                <div class="color bg-pink"></div>
-                                <div class="color-small bg-ebony"></div>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="d-flex">
-                        <div class="color-skin-box" data-toggle="tooltip" data-original-title="White">
-                            <label>
-                                <input type="radio" name="setting-theme" value="white" <?php if ($themecolor == 'white') {
-                                    echo "checked";
-                                } ?>>
-                                <span class="color-check-icon"><i class="fa fa-check"></i></span>
-                                <div class="color"></div>
-                                <div class="color-small bg-silver-100"></div>
-                            </label>
-                        </div>
-                        <div class="color-skin-box" data-toggle="tooltip" data-original-title="Blue light">
-                            <label>
-                                <input type="radio" name="setting-theme" value="blue-light" <?php if ($themecolor == 'blue-light') {
-                                    echo "checked";
-                                } ?>>
-                                <span class="color-check-icon"><i class="fa fa-check"></i></span>
-                                <div class="color bg-blue"></div>
-                                <div class="color-small bg-silver-100"></div>
-                            </label>
-                        </div>
-                        <div class="color-skin-box" data-toggle="tooltip" data-original-title="Green light">
-                            <label>
-                                <input type="radio" name="setting-theme" value="green-light" <?php if ($themecolor == 'green-light') {
-                                    echo "checked";
-                                } ?>>
-                                <span class="color-check-icon"><i class="fa fa-check"></i></span>
-                                <div class="color bg-green"></div>
-                                <div class="color-small bg-silver-100"></div>
-                            </label>
-                        </div>
-                        <div class="color-skin-box" data-toggle="tooltip" data-original-title="Purple light">
-                            <label>
-                                <input type="radio" name="setting-theme" value="purple-light" <?php if ($themecolor == 'purple-light') {
-                                    echo "checked";
-                                } ?>>
-                                <span class="color-check-icon"><i class="fa fa-check"></i></span>
-                                <div class="color bg-purple"></div>
-                                <div class="color-small bg-silver-100"></div>
-                            </label>
-                        </div>
-                        <div class="color-skin-box" data-toggle="tooltip" data-original-title="Orange light">
-                            <label>
-                                <input type="radio" name="setting-theme" value="orange-light" <?php if ($themecolor == 'orange-light') {
-                                    echo "checked";
-                                } ?>>
-                                <span class="color-check-icon"><i class="fa fa-check"></i></span>
-                                <div class="color bg-orange"></div>
-                                <div class="color-small bg-silver-100"></div>
-                            </label>
-                        </div>
-                        <div class="color-skin-box" data-toggle="tooltip" data-original-title="Pink light">
-                            <label>
-                                <input type="radio" name="setting-theme" value="pink-light" <?php if ($themecolor == 'pink-light') {
-                                    echo "checked";
-                                } ?>>
-                                <span class="color-check-icon"><i class="fa fa-check"></i></span>
-                                <div class="color bg-pink"></div>
-                                <div class="color-small bg-silver-100"></div>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- END THEME CONFIG PANEL-->
 
             <script disable-devtool-auto="" src="https://pay.imb.org.in/Qrcode/disable-devtool.js"
                 data-url="https://www.google.com/"></script>

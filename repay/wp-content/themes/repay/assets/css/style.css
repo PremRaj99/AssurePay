@@ -68,7 +68,7 @@
     --e-global-color-dark-gray: #787878;
     --e-global-color-very-dark-gray-mostly-black: #2e2e2e;
     --e-global-heading-font: 'Barlow Condensed', sans-serif;
-    --e-global-body-font: 'Oxygen', sans-serif;
+    --e-global-body-font: 'Aptos', "poppins", sans-serif;
 }
 
 a {
@@ -86,6 +86,7 @@ html {
     box-sizing: border-box;
     outline: none;
     -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
     /* Firefox */
     -webkit-font-smoothing: antialiased;
     /* WebKit */
@@ -7634,7 +7635,7 @@ select:focus {
     background-color: var(--e-global-color-accent) !important;
     border: 1px solid var(--e-global-color-accent) !important;
     color: var(--e-global-color-white) !important;
-    align-content
+    align-content: last baseline;
 }
 
 .woocommerce div.product .woocommerce-tabs .panel p {

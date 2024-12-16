@@ -19,72 +19,82 @@
         font-family: 'Aptos', 'Poppins', sans-serif;
     }
 
-    tr {
-        text-align: center;
+    h1 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #333;
     }
 
-    th {
-        text-align: center;
-    }
-
-    .badge-success {
-        background-color: transparent;
-        color: #28a745;
-        border: none;
+    input {
+        font-size: 16px !important;
+        width: 400px !important;
         font-weight: 500;
-    }
-
-    .badge-warning {
-        background-color: transparent;
-        color: #ffc107;
-        border: none;
-        font-weight: 500;
-    }
-
-    tbody tr {
-        background-color: white !important;
-        border: none !important;
-        border-radius: 10px !important;
-        overflow: hidden;
-
-        &:hover {
-            background-color: rgb(233, 246, 254) !important;
-        }
-    }
-
-    thead {
-        border: none !important;
-        padding: 10px 10px !important;
-    }
-
-    tbody td {
-        border: none !important;
+        color: #333;
+        /* position: relative; */
+        right: 20px;
     }
 
     table {
-        /* border-collapse: collapse; */
-        width: 100%;
-        border-spacing: 0 2px;
+        border-collapse: collapse;
+        background-color: white !important;
         border-radius: 10px;
         overflow: hidden;
+        border-spacing: 0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        & thead {
+            height: 60px;
+
+            & tr {
+                & th {
+                    font-size: 14px !important;
+                    font-weight: 600 !important;
+                    vertical-align: middle !important;
+                    text-align: center !important;
+                }
+            }
+        }
+
+        & tbody {
+            & tr {
+                height: 50px;
+                cursor: pointer;
+                border: none;
+                border-bottom: 1px solid #f0f0f0;
+
+                & td {
+                    vertical-align: middle !important;
+                    border: none;
+                    text-align: center !important;
+                }
+
+                &:hover {
+                    background-color: rgba(236, 249, 255, 0.44) !important;
+                }
+            }
+        }
     }
 
-    thead tr th {
-        background-color: white;
-        color: #007BFF;
-        font-size: 16px !important;
-        font-weight: 400;
-        padding-block: 10px !important;
+    .badge-success {
+        background-color: rgba(194, 255, 189, 0.79);
+        color: rgb(2, 80, 20);
+        border: none;
+        font-weight: 500;
+        border-radius: 4px;
     }
 
-    thead {
-        padding-block: 10px !important;
+    .badge-warning {
+        background-color: rgb(255, 246, 219);
+        color: rgb(194, 104, 7);
+        border: none;
+        font-weight: 500;
+        border-radius: 4px;
     }
 </style>
 
 <div class="page-content fade-in-up">
     <div class="table-responsive">
-        <table class="table table-striped table-bordered table-hover" id="example-table">
+        <table class="table" id="example-table">
             <thead>
                 <tr>
                     <th>#</th>
@@ -123,12 +133,12 @@
                                     <td>" . htmlspecialchars($row['id']) . "</td>
                                     <td>" . htmlspecialchars($row['order_id']) . "</td>
                                     <td>" . htmlspecialchars($row['customer_mobile']) . "</td>
-                                    <td>" . htmlspecialchars(date("d-m-Y H:i:s", strtotime($row['create_date']))) . "</td>
+                                    <td>" . htmlspecialchars(date("d/m/y  H:i:s", strtotime($row['create_date']))) . "</td>
                                     <td>" . htmlspecialchars($row['method']) . "</td>
                                     <td>" . htmlspecialchars($row['gateway_txn']) . "</td>
                                     <td>" . htmlspecialchars($row['utr']) . "</td>
                                     <td>₹" . htmlspecialchars($row['amount']) . "</td>
-                                    <td><span class='$badge_class'>$status_text</span></td>
+                                    <td><span class='$badge_class font-semibold'>$status_text</span></td>
                                   </tr>";
                     }
                 } else {

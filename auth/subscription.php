@@ -15,12 +15,22 @@ $query = $conn->query("SELECT * FROM `subscription_plan`");
     </ol>
 </div>
 <style>
+    h1 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #333;
+    }
     .card {
         border: 1px solid rgb(228, 228, 228);
         overflow: hidden;
         border-radius: 15px !important;
         margin-bottom: 20px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s;
+        &:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            scale: 1.02;
+        }
     }
 
     .card .card-header {
@@ -40,7 +50,7 @@ $query = $conn->query("SELECT * FROM `subscription_plan`");
         margin: 6px;
         font-size: 38px;
         font-weight: 600;
-        color: #007bff;
+        color: #0f3f73;
     }
 
     .card .card-header p {
@@ -98,14 +108,14 @@ $query = $conn->query("SELECT * FROM `subscription_plan`");
         font-weight: 600;
         color: #fff;
         background-color: #fff;
-        border: 2px solid #007bff;
-        color: #007bff;
+        border: 2px solid #0f3f73;
+        color: #0f3f73;
         border-radius: 50px;
         cursor: pointer;
     }
 
     .card .card-footer button:hover {
-        background-color: #007bff;
+        background-color: #0f3f73;
         color: #fff;
     }
 
