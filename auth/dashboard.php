@@ -195,7 +195,7 @@ if ($result === false) {
             <div class="ibox bg-danger widget-stat card">
                 <div class="ibox-body">
                     <div class="m-b-5">Plan Expire Date</div>
-                    <h2 class="p-t-5 font-strong color-white"></h2>
+                    <h2 class="p-t-5 font-strong color-orange">
                         <?php echo date('d-m-Y', strtotime($userdata['expiry'])); ?>
                     </h2>
                     <i class="widget-stat-icon background-orange color-white">
@@ -213,7 +213,7 @@ if ($result === false) {
             </div>
         </div>
     </div>
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-lg-8">
             <div class="ibox">
                 <div class="ibox-body">
@@ -275,7 +275,7 @@ if ($result === false) {
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- <div class="row">
         <div class="col-lg-8">
             <div class="ibox">
