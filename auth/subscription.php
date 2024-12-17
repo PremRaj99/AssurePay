@@ -15,10 +15,20 @@ $query = $conn->query("SELECT * FROM `subscription_plan`");
     </ol>
 </div>
 <style>
+    * {
+        font-family: 'Aptos', 'Poppins', sans-serif;
+    }
     h1 {
         font-size: 24px;
         font-weight: 600;
         color: #333;
+    }
+
+    .page-heading {
+        padding-inline: 20px;
+    }
+    .row {
+        padding-inline: 20px;
     }
     .card {
         border: 1px solid rgb(228, 228, 228);
@@ -42,15 +52,15 @@ $query = $conn->query("SELECT * FROM `subscription_plan`");
     .card .card-header h4 {
         margin: 0;
         font-size: 18px;
-        font-weight: 600;
+        font-weight: 500;
         color: #333;
     }
 
     .card .card-header h2 {
         margin: 6px;
         font-size: 38px;
-        font-weight: 600;
-        color: #0f3f73;
+        font-weight: 700;
+        color: #0882FF;
     }
 
     .card .card-header p {
@@ -65,7 +75,7 @@ $query = $conn->query("SELECT * FROM `subscription_plan`");
     }
 
     .card .card-body table {
-        width: 100%;
+        width: 90%;
         margin: 0;
         padding: 0;
     }
@@ -108,14 +118,14 @@ $query = $conn->query("SELECT * FROM `subscription_plan`");
         font-weight: 600;
         color: #fff;
         background-color: #fff;
-        border: 2px solid #0f3f73;
-        color: #0f3f73;
+        border: 2px solid #0882FF;
+        color: #0882FF;
         border-radius: 50px;
         cursor: pointer;
     }
 
     .card .card-footer button:hover {
-        background-color: #0f3f73;
+        background-color: #0882FF;
         color: #fff;
     }
 
@@ -270,7 +280,7 @@ $query = $conn->query("SELECT * FROM `subscription_plan`");
                             <div class="card text-center">
                                 <div class="card-header">
                                     <h4 class="card-title"><?= $row["plan_name"] ?></h4>
-                                    <h2 class="text-center">₹<?= number_format($row["amount"]) ?></h2>
+                                    <h2 class="text-center">₹ <?= number_format($row["amount"]) ?></h2>
                                     <p class="card-category"><?= $row["expiry"] ?> Month</p>
                                 </div>
                                 <div class="card-body">
@@ -278,28 +288,28 @@ $query = $conn->query("SELECT * FROM `subscription_plan`");
                                     <table class="mx-auto">
                                         <tbody>
                                             <tr>
-                                                <td><img src="https://cdn-icons-png.flaticon.com/512/665/665939.png"
+                                                <td><img src="https://cdn.pixabay.com/photo/2013/07/13/10/48/check-157822_640.png"
                                                         width="16px" alt=""></td>
                                                 <td>
                                                     <p>0 Transaction Fee</p>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td><img src="https://cdn-icons-png.flaticon.com/512/665/665939.png"
+                                                <td><img src="https://cdn.pixabay.com/photo/2013/07/13/10/48/check-157822_640.png"
                                                         width="16px" alt=""></td>
                                                 <td>
                                                     <p>Realtime Transaction</p>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td><img src="https://cdn-icons-png.flaticon.com/512/665/665939.png"
+                                                <td><img src="https://cdn.pixabay.com/photo/2013/07/13/10/48/check-157822_640.png"
                                                         width="16px" alt=""></td>
                                                 <td>
                                                     <p>No Amount Limit</p>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td><img src="https://cdn-icons-png.flaticon.com/512/665/665939.png"
+                                                <td><img src="https://cdn.pixabay.com/photo/2013/07/13/10/48/check-157822_640.png"
                                                         width="16px" alt="">
                                                 </td>
                                                 <td>
@@ -308,7 +318,7 @@ $query = $conn->query("SELECT * FROM `subscription_plan`");
                                             </tr>
 
                                             <tr>
-                                                <td><img src="https://cdn-icons-png.flaticon.com/512/665/665939.png"
+                                                <td><img src="https://cdn.pixabay.com/photo/2013/07/13/10/48/check-157822_640.png"
                                                         width="16px" alt="">
                                                 </td>
                                                 <td>
@@ -316,7 +326,7 @@ $query = $conn->query("SELECT * FROM `subscription_plan`");
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td><img src="https://cdn-icons-png.flaticon.com/512/665/665939.png"
+                                                <td><img src="https://cdn.pixabay.com/photo/2013/07/13/10/48/check-157822_640.png"
                                                         width="16px" alt="">
                                                 </td>
                                                 <td>
@@ -324,7 +334,7 @@ $query = $conn->query("SELECT * FROM `subscription_plan`");
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td><img src="https://cdn-icons-png.flaticon.com/512/665/665939.png"
+                                                <td><img src="https://cdn.pixabay.com/photo/2013/07/13/10/48/check-157822_640.png"
                                                         width="16px" alt=""></td>
                                                 <td>
                                                     <p>24*7 WhatsApp Support</p>

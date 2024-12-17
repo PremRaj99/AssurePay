@@ -1,8 +1,31 @@
 <?php include "header.php"; ?>
 <!-- START PAGE CONTENT-->
 <style>
+    * {
+        font-family: 'Aptos', 'Poppins', sans-serif;
+    }
+
     h1 {
         font-size: 24px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .page-heading {
+        padding-inline: 20px;
+    }
+
+    .page-content {
+        padding-inline: 20px;
+    }
+
+    .card {
+        border-radius: 10px !important;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.04);
+    }
+
+    h5 {
+        font-size: 18px;
         font-weight: 600;
         color: #333;
     }
@@ -35,6 +58,91 @@
         font-weight: 500;
         padding: 12px !important;
         border-radius: 5px !important;
+        background-color: #007bff !important;
+        color: #fff !important;
+        cursor: pointer;
+    }
+
+    button[name="addmerchant"]:hover {
+        background-color: #0056b3 !important;
+    }
+
+    table {
+        border-collapse: collapse;
+        background-color: white !important;
+        border-radius: 10px;
+        overflow: hidden;
+        border-spacing: 0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        & thead {
+            height: 60px;
+
+            & tr {
+                & th {
+                    font-size: 14px !important;
+                    font-weight: 600 !important;
+                    vertical-align: middle !important;
+                    text-align: center !important;
+                }
+            }
+        }
+
+        & tbody {
+            & tr {
+                height: 50px;
+                cursor: pointer;
+                border: none;
+                border-bottom: 1px solid #f0f0f0;
+
+                & td {
+                    vertical-align: middle !important;
+                    border: none;
+                    text-align: center !important;
+                }
+
+                &:hover {
+                    background-color: rgba(236, 249, 255, 0.44) !important;
+                }
+            }
+        }
+    }
+
+    .btn-primary {
+        background-color: rgba(18, 127, 243, 0.28) !important;
+        border: none !important;
+        color: rgb(4, 48, 95) !important;
+        border-radius: 5px !important;
+        cursor: pointer;
+    }
+
+    .btn-primary:hover {
+        color: white !important;
+        background-color: #007bff !important;
+    }
+
+    .btn-danger {
+        color: rgb(150, 9, 23) !important;
+        background-color: rgba(255, 2, 27, 0.21) !important;
+        /* border-color: #dc3545 !important; */
+        border: none !important;
+        border-radius: 5px !important;
+        cursor: pointer;
+    }
+
+    .btn-white {
+        color: #333 !important;
+        background-color: transparent !important;
+        border: none !important;
+        border-radius: 5px !important;
+    }
+
+    .gap-10 {
+        gap: 10px;
+    }
+
+    .gap-10>form>* {
+        padding-inline: 10px !important;
     }
 </style>
 <div class="page-heading">
@@ -50,7 +158,7 @@
 
     <!-- <div class="row"> -->
     <!-- <div class="col-md-4"> -->
-    <div class="card m-t-20 m-b-20">
+    <div class="card m-b-20">
         <div class="card-body">
             <div class="main-panel">
                 <div class="content">
@@ -316,7 +424,7 @@
 
 
                                     <div class="row" id="merchant">
-                                        <div class="col-md-8 mx-auto mb-4">
+                                        <div class="col-md-4 mb-4">
                                             <label>Merchant Name</label>
                                             <select name="merchant_name" class="form-control">
                                                 <option value="hdfc">HDFC Vyapar</option>
@@ -330,13 +438,13 @@
                                             </select>
 
                                         </div>
-                                        <div class="col-md-8 mx-auto mb-2">
+                                        <div class="col-md-4 mb-2">
                                             <label>Cashier Mobile Number</label>
                                             <input type="number" name="c_mobile" placeholder="Enter Mobile Number"
                                                 class="form-control"
                                                 onkeypress="if(this.value.length==10) return false;" required="">
                                         </div>
-                                        <div class="col-md-8 mx-auto mb-2">
+                                        <div class="col-md-4 mb-2">
                                             <label>&nbsp;</label>
 
                                             <button type="submit" name="addmerchant"
@@ -350,7 +458,7 @@
 
 
                                 <div class="table-responsive">
-                                    <h5>All Merchants</h5>
+                                    <h5 class="my-3">All Merchants</h5>
                                     <table class="table table-sm table-hover table-bordered table-head-bg-primary"
                                         id="dataTable" width="100%">
                                         <thead>
@@ -358,7 +466,6 @@
                                                 <th>#</th>
                                                 <th>Merchant Type</th>
                                                 <th>User ID</th>
-                                                <th>Username</th>
                                                 <th>Last Sync</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
@@ -402,13 +509,13 @@
                                                         </td>
                                                         <td>
                                                             <button type="button"
-                                                                class="btn ripple btn-primary px-2"><?php echo !empty($merchant['date']) ? htmlspecialchars($merchant['date'], ENT_QUOTES, 'UTF-8') : ''; ?></button>
+                                                                class="btn ripple btn-white px-2"><?php echo !empty($merchant['date']) ? htmlspecialchars($merchant['date'], ENT_QUOTES, 'UTF-8') : ''; ?></button>
                                                         </td>
                                                         <td
                                                             style="color: <?php echo ($merchant['status'] == 'Active') ? 'green' : 'red'; ?>">
                                                             <?php echo htmlspecialchars($merchant['status'], ENT_QUOTES, 'UTF-8'); ?>
                                                         </td>
-                                                        <td>
+                                                        <td class="d-flex justify-content-center gap-10">
                                                             <?php
                                                             if ($merchant['merchant_type'] == 'hdfc') {
                                                                 ?>
@@ -493,8 +600,7 @@
                                                                 <?php
                                                             }
                                                             ?>
-                                                        </td>
-                                                        <td>
+
                                                             <?php
                                                             if ($merchant['merchant_type'] == 'hdfc') {
                                                                 ?>
@@ -602,7 +708,9 @@
                                                 ?>
                                                 <tr>
                                                     <td colspan="7">
-                                                        <p class="text-center py-4"style="font-size: 18px; color: #333!important;">No data found</p>
+                                                        <p class="text-center py-4"
+                                                            style="font-size: 18px; color: #333!important;">No data found
+                                                        </p>
                                                     </td>
                                                 </tr>
                                                 <?php
@@ -625,25 +733,26 @@
 
 
                     </div>
+                    <!-- </div> -->
+
                 </div>
+                <script src="./assets/vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
 
-            </div>
-            <script src="./assets/vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
+                <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" />
+                <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+                <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
 
-            <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" />
-            <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-            <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+                <!-- CORE PLUGINS-->
+                <script src="./assets/vendors/popper.js/dist/umd/popper.min.js" type="text/javascript"></script>
+                <script src="./assets/vendors/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+                <script src="./assets/vendors/metisMenu/dist/metisMenu.min.js" type="text/javascript"></script>
+                <script src="./assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js"
+                    type="text/javascript"></script>
+                <!-- PAGE LEVEL PLUGINS-->
+                <!-- CORE SCRIPTS-->
+                <script src="assets/js/app.min.js" type="text/javascript"></script>
+                <script src="./assets/js/scripts/dashboard_1_demo.js" type="text/javascript"></script>
+                <!-- PAGE LEVEL SCRIPTS-->
+                </body>
 
-            <!-- CORE PLUGINS-->
-            <script src="./assets/vendors/popper.js/dist/umd/popper.min.js" type="text/javascript"></script>
-            <script src="./assets/vendors/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
-            <script src="./assets/vendors/metisMenu/dist/metisMenu.min.js" type="text/javascript"></script>
-            <script src="./assets/vendors/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-            <!-- PAGE LEVEL PLUGINS-->
-            <!-- CORE SCRIPTS-->
-            <script src="assets/js/app.min.js" type="text/javascript"></script>
-            <script src="./assets/js/scripts/dashboard_1_demo.js" type="text/javascript"></script>
-            <!-- PAGE LEVEL SCRIPTS-->
-            </body>
-
-            </html>
+                </html>

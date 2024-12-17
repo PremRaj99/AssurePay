@@ -92,6 +92,14 @@ if (isset($_SESSION['username'])) {
             text-decoration: none !important;
         }
 
+        header {
+            border-bottom: 2px solid #0882FF !important;
+        }
+
+        /* header .page-brand a div.logo {
+                                border-bottom: 2px solid #0882FF!important;
+                            } */
+
         .hand {
             cursor: pointer;
         }
@@ -359,6 +367,13 @@ if (isset($_SESSION['username'])) {
                 background-color: #0882ff !important;
                 border-radius: 5px;
                 color: #fff !important;
+                display: flex;
+                align-items: center;
+                ;
+            }
+
+            & i {
+                margin-right: 4px;
             }
         }
 
@@ -385,6 +400,8 @@ if (isset($_SESSION['username'])) {
             background-color: #fff !important;
             color: #000 !important;
             padding: 8px !important;
+            width: 230px !important;
+            margin-right: 20px !important;
         }
 
         .page-sidebar .admin-block div {
@@ -393,6 +410,24 @@ if (isset($_SESSION['username'])) {
 
         .page-sidebar .admin-block div small {
             color: #000 !important;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70%;
+        }
+
+        .standard-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .standard-logo img {
+            width: 120px;
         }
     </style>
 
@@ -411,7 +446,11 @@ if (isset($_SESSION['username'])) {
             <header class="header" style="background-color:#fff!important; color:#000!important;">
                 <div class="page-brand">
                     <a class="link" href="dashboard">
-                        <span class="brand">AssurePay</span>
+                        <div class="logo">
+                            <a class="standard-logo" href="">
+                                <img src="<?php echo $site_settings['logo_url']; ?>" alt="logo" />
+                            </a>
+                        </div>
                         </span>
                         <span class="brand-mini">AP</span>
                     </a>
@@ -428,8 +467,15 @@ if (isset($_SESSION['username'])) {
                     <ul class="nav navbar-toolbar" style="margin-right: 20px;">
                         <li class="dropdown dropdown-user">
                             <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
-                                <img src="./assets/img/admin-avatar.png" />
-                                <span></span><?php echo $userdata['role']; ?><i class="fa fa-angle-down m-l-5"></i></a>
+                                <img
+                                    src="https://cdn2.iconfinder.com/data/icons/audio-16/96/user_avatar_profile_login_button_account_member-512.png" />
+                                <div style="display: flex; flex-direction: column; margin-left: 10px;">
+                                    <span style="font-weight: 600; margin-bottom: 4px;"><?php echo $userdata['name']; ?><i
+                                            class="fa fa-angle-down m-l-5"></i></span>
+                                    <span
+                                        style="font-size: 10px;"><?php echo $userdata['role'] === "User" ? "API Partner" : "Admin"; ?></span>
+                                </div>
+                            </a>
                             <ul class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="profile"><i class="fa fa-user"></i>Profile</a>
                                 <a class="dropdown-item" href="javascript:;"><i class="fa fa-cog"></i>Settings</a>
@@ -448,7 +494,10 @@ if (isset($_SESSION['username'])) {
                 <div id="sidebar-collapse" style="padding: 16px 0;">
                     <ul class="side-menu metismenu">
                         <li>
-                            <a class="active" href="dashboard"><i class="sidebar-item-icon fa fa-th-large"></i>
+                            <a class="active" href="dashboard"><img
+                                    src="https://icons.iconarchive.com/icons/pictogrammers/material/256/view-dashboard-icon.png"
+                                    class="sidebar-item-icon fa fa-th-large"
+                                    style="width: 20px; margin-right: 10px; filter: brightness(0) invert(1);"></img>
                                 <span class="nav-label">Dashboard</span>
                             </a>
                         </li>
@@ -456,7 +505,7 @@ if (isset($_SESSION['username'])) {
                         if ($userdata['role'] == 'Admin') {
                             ?>
 
-                            
+
 
                             <li class="heading">Admin Managment</li>
                             <li>
@@ -477,7 +526,8 @@ if (isset($_SESSION['username'])) {
 
 
                             <li>
-                                <a class="<?= ($activePage === 'add_api') ? 'active' : '' ?>" href="add_api"> <i class="sidebar-item-icon">
+                                <a class="<?= ($activePage === 'add_api') ? 'active' : '' ?>" href="add_api"> <i
+                                        class="sidebar-item-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                             class="bi bi-envelope-check" viewBox="0 0 16 16">
                                             <path
@@ -490,7 +540,8 @@ if (isset($_SESSION['username'])) {
                                 </a>
                             </li>
                             <li>
-                                <a class="<?= ($activePage === 'manage_subscription') ? 'active' : '' ?>" href="manage_subscription"> <i class="sidebar-item-icon">
+                                <a class="<?= ($activePage === 'manage_subscription') ? 'active' : '' ?>"
+                                    href="manage_subscription"> <i class="sidebar-item-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                             class="bi bi-shop" viewBox="0 0 16 16">
                                             <path

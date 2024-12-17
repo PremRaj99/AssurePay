@@ -23,6 +23,14 @@
         font-size: 24px;
         font-weight: 600;
         color: #333;
+        padding-inline: 20px;
+    }
+
+    /* .page-heading {
+        } */
+
+    .row {
+        padding-inline: 10px;
     }
 
     input {
